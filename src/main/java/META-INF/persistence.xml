@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+	<persistence-unit name="prueba1" transaction-type="RESOURCE_LOCAL">
+<!-- 		<class>model.Person</class> -->
+<!-- 		<class>model.Role</class> -->
+<!-- 		<class>model.User</class> -->
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+    <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bd_examen"/>
+    <property name="javax.persistence.jdbc.user" value="root"/>
+    <property name="javax.persistence.jdbc.password" value="mysql"/>
+
+    <!-- Dialecto de Hibernate para MySQL -->
+    <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+
+    <!-- Crear y eliminar tablas automáticamente -->
+    <property name="javax.persistence.schema-generation.database.action" value="update"/>
+
+    <!-- Log de consultas SQL -->
+    <property name="hibernate.show_sql" value="true"/>
+    <property name="hibernate.format_sql" value="true"/>
+</properties>
+
+	</persistence-unit>
+</persistence>
