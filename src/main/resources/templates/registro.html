@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Registro - Biblioteca Municipal de Lima</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header bg-primary text-white text-center">
+					<h2>Registro de Usuario</h2>
+				</div>
+				<div class="card-body">
+					<form th:action="@{/registro}" th:object="${user}" method="post">
+    <div class="mb-3">
+        <label for="fistname" class="form-label">Nombre:</label>
+        <input type="text" id="fistname" class="form-control" th:field="*{person.fistname}" placeholder="Ingrese su nombre" required />
+        <small class="text-danger" th:if="${#fields.hasErrors('person.fistname')}" th:errors="*{person.fistname}"></small>
+    </div>
+
+    <div class="mb-3">
+        <label for="lastname" class="form-label">Apellido:</label>
+        <input type="text" id="lastname" class="form-control" th:field="*{person.lastname}" placeholder="Ingrese su apellido" required />
+        <small class="text-danger" th:if="${#fields.hasErrors('person.lastname')}" th:errors="*{person.lastname}"></small>
+    </div>
+
+    <div class="mb-3">
+        <label for="datebirth" class="form-label">Fecha de nacimiento:</label>
+        <input type="text" id="datebirth" class="form-control" th:field="*{person.datebirth}" placeholder="DD-MM-YYYY" required />
+        <small class="text-danger" th:if="${#fields.hasErrors('person.datebirth')}" th:errors="*{person.datebirth}"></small>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo Electrónico:</label>
+        <input type="email" id="email" class="form-control" th:field="*{email}" placeholder="Ingrese su correo electrónico" required />
+        <small class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña:</label>
+        <input type="password" id="password" class="form-control" th:field="*{password}" placeholder="Ingrese su contraseña" required />
+        <small class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="role">Rol</label>
+        <select id="role" th:field="*{role}" class="form-control">
+            <option th:each="role : ${roles}" th:value="${role.idrole}" th:text="${role.name}"></option>
+        </select>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+    </div>
+</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS and dependencies -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

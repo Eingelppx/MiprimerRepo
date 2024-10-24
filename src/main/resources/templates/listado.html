@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Usuarios - Biblioteca Municipal de Lima</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+          crossorigin="anonymous">
+</head>
+<body class="container mt-5">
+    <h1 class="text-center mt-5 mb-4">Listado de Usuarios</h1>
+    
+    <!-- Botón para descargar el reporte -->
+    <div class="text-center mb-4">
+        <a href="/UsuariosReport" class="btn btn-primary" role="button">
+            Descargar Reporte
+        </a>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID Persona</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each="p : ${ltsPerson}">
+                <tr>
+                    <td th:text="${p.idperson}"></td>
+                    <td th:text="${p.fistname}"></td>
+                    <td th:text="${p.lastname}"></td>
+                    <td th:text="${p.user.role.name}"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+            integrity="sha384-KJ3oAiTTr8z8Ck8O3e+3HhS1D1J53B4n8pP1Fjq96clQ58i83B2T4+pI9VR/2m9" 
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+            integrity="sha384-7oY4cDFr5y9H3Y30QfPqXJc3uQ1P3bD9G3U6zZ4CCfRtH8Z6dJkGk+14Y0BCEwx" 
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8j3aMZ6mG8b5eIlH6g2W/6gUo6K4lV7c9S3R/RFOfu7y4Uj6c5" 
+            crossorigin="anonymous"></script>
+</body>
+</html>
