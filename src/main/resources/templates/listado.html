@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<<<<<<< HEAD
 <head>
     <title>Listado de Usuarios - Biblioteca Municipal de Lima</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
@@ -48,3 +49,34 @@
             crossorigin="anonymous"></script>
 </body>
 </html>
+=======
+	<head>
+		<title>Mi thymeleaf</title>
+	</head>
+<body>
+	<br>
+			<h1>Lista de Roles</h1>
+	<table>
+		<th:block th:each="p: ${ltsRole}">
+			<tr>
+				<td th:text ="${p.idrole}"></td>
+				<td th:text ="${p.name}"></td>
+				<td th:text ="${p.description}"></td>
+			</tr>
+		</th:block>
+	</table>
+	<br>
+			<h1>Lista de Personas</h1>
+	<table>
+		
+			<th:block th:each="p: ${ltsPerson}">
+				<tr>
+					<td th:text ="${p.idperson}"></td>
+					<td th:text ="${p.fistname}"></td>
+					<td th:text ="${p.lastname}"></td>
+				</tr>
+			</th:block>
+		</table>
+</body>
+</html>
+>>>>>>> 58f045f446241457cb97cbc5a7d6baf513f65a64
